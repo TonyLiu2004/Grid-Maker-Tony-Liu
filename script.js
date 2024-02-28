@@ -57,9 +57,7 @@ function removeC() {
         grid.children[i].deleteCell(numCols-1);
     }
     numCols--;
-    if(numCols == 0) { 
-        clearAll();
-    }
+    if(numCols == 0) clearAll();
     console.log(numRows, numCols);
 }
 
