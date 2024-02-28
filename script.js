@@ -79,5 +79,7 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    numRows = 0;
+    numCols = 0;
+    document.getElementById("grid").innerHTML = "";
 }
