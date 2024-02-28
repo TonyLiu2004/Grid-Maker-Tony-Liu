@@ -69,7 +69,14 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    for(let i = 0;i < numRows; i++){
+        for(let j = 0;j < numCols; j++){
+            let cell = document.getElementById("grid").children[i].children[j];
+            if(cell.style.backgroundColor == ""){
+                cell.style.backgroundColor = colorSelected;
+            }
+        }
+    }
 }
 
 // Fill all cells
@@ -88,7 +95,7 @@ function resetGrid(){
 function clearAll(){
     for(let i = 0;i < numRows; i++){
         for(let j = 0;j < numCols; j++){
-            document.getElementById("grid").children[i].children[j].style.backgroundColor = "white";
+            document.getElementById("grid").children[i].children[j].style.backgroundColor = "";
         }
     }
 }
