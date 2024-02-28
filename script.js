@@ -45,7 +45,7 @@ function removeR() {
     if(numRows < 1) return;
     document.getElementById("grid").deleteRow(numRows-1);
     numRows--;
-    if(numRows == 0) clearAll();
+    if(numRows == 0) resetGrid();
     console.log(numRows, numCols);
 }
 
@@ -57,7 +57,7 @@ function removeC() {
         grid.children[i].deleteCell(numCols-1);
     }
     numCols--;
-    if(numCols == 0) clearAll();
+    if(numCols == 0) resetGrid();
     console.log(numRows, numCols);
 }
 
@@ -77,9 +77,18 @@ function fillAll(){
     alert("Clicked Fill All"); // Replace this line with your code.
 }
 
-// Clear all cells
-function clearAll(){
+// Reset Grid
+function resetGrid(){
     numRows = 0;
     numCols = 0;
     document.getElementById("grid").innerHTML = "";
+}
+
+// Clear all cells
+function clearAll(){
+    for(let i = 0;i < numRows; i++){
+        for(let j = 0;j < numCols; j++){
+            document.getElementById("grid").children[i].children[j].style.backgroundColor = "white";
+        }
+    }
 }
