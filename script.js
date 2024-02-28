@@ -6,16 +6,30 @@ let colorSelected;
 // Add a row
 function addR() {
     let row = document.createElement("tr");
-    for(let i = 0; i < numCols+1; i++){
+    for(let i = 0; i < numCols; i++){
         row.appendChild(document.createElement("td"));
+    }
+    if(numCols==0){ //first cell
+        row.appendChild(document.createElement("td"));
+        numCols++;
     }
     document.getElementById("grid").appendChild(row);
     numRows++;
+    console.log(numRows, numCols);
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    if(numRows == 0){ //first cell
+        addR();
+        return;
+    }
+    let grid = document.getElementById("grid");
+    for(let i = 0; i < numRows; i++){
+        grid.children[i].appendChild(document.createElement("td"));
+    }
+    numCols++;
+    console.log(numRows, numCols);
 }
 
 // Remove a row
