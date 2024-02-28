@@ -22,6 +22,7 @@ function addR() {
     }
     document.getElementById("grid").appendChild(row);
     numRows++;
+    console.log(numRows, numCols);
 }
 
 // Add a column
@@ -35,6 +36,7 @@ function addC() {
         addCell(grid.children[i]);
     }
     numCols++;
+    console.log(numRows, numCols);
 }
 
 // Remove a row
@@ -42,6 +44,8 @@ function removeR() {
     if(numRows < 1) return;
     document.getElementById("grid").deleteRow(numRows-1);
     numRows--;
+    if(numRows == 0) numCols = 0;
+    console.log(numRows, numCols);
 }
 
 // Remove a column
