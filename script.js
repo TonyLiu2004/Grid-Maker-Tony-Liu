@@ -4,13 +4,19 @@ let numCols = 0;
 let colorSelected; 
 
 // Add a row
+
+function addCell(input){
+    let td = document.createElement("td");
+    td.onclick = function(){td.style.backgroundColor = colorSelected;}
+    input.appendChild(td);
+}
 function addR() {
     let row = document.createElement("tr");
     for(let i = 0; i < numCols; i++){
-        row.appendChild(document.createElement("td"));
+        addCell(row);
     }
     if(numCols==0){ //first cell
-        row.appendChild(document.createElement("td"));
+        addCell(row);
         numCols++;
     }
     document.getElementById("grid").appendChild(row);
@@ -26,7 +32,7 @@ function addC() {
     }
     let grid = document.getElementById("grid");
     for(let i = 0; i < numRows; i++){
-        grid.children[i].appendChild(document.createElement("td"));
+        addCell(grid.children[i]);
     }
     numCols++;
     console.log(numRows, numCols);
