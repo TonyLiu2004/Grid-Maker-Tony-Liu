@@ -29,6 +29,7 @@ function addR() {
 function addC() {
     if(numRows == 0){ //first cell
         addR();
+        console.log("called addr");
         return;
     }
     let grid = document.getElementById("grid");
@@ -44,13 +45,22 @@ function removeR() {
     if(numRows < 1) return;
     document.getElementById("grid").deleteRow(numRows-1);
     numRows--;
-    if(numRows == 0) numCols = 0;
+    if(numRows == 0) clearAll();
     console.log(numRows, numCols);
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    if(numCols < 1) return;
+    let grid = document.getElementById("grid");
+    for(let i = 0;i < numRows; i++){
+        grid.children[i].deleteCell(numCols-1);
+    }
+    numCols--;
+    if(numCols == 0) { 
+        clearAll();
+    }
+    console.log(numRows, numCols);
 }
 
 // Set global variable for selected color
