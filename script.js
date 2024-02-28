@@ -3,13 +3,14 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 
-// Add a row
-
+//insert cell at input
 function addCell(input){
     let td = document.createElement("td");
     td.onclick = function(){td.style.backgroundColor = colorSelected;}
     input.appendChild(td);
 }
+
+// Add a row
 function addR() {
     let row = document.createElement("tr");
     for(let i = 0; i < numCols; i++){
