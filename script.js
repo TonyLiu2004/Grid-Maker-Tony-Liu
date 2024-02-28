@@ -81,8 +81,12 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
-}
+    for(let i = 0;i < numRows; i++){
+        for(let j = 0;j < numCols; j++){
+            let cell = document.getElementById("grid").children[i].children[j];
+            cell.style.backgroundColor = colorSelected;
+        }
+    }}
 
 // Reset Grid
 function resetGrid(){
